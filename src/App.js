@@ -21,7 +21,7 @@ function App() {
     <div className="main">
       <div className="card">
         <div className="header">
-          <h1 className="font-avatr">Avatar</h1>
+          <h1 className="font-avatr">Avatr</h1>
           <div>by</div>
           <h3 className="">Samuele Scatena</h3>
         </div>
