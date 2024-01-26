@@ -20,11 +20,6 @@ function App() {
   return (
     <div className="main">
       <div className="card">
-        <div className="header">
-          <h1 className="font-avatr">Avatr</h1>
-          <div>by</div>
-          <h3 className="">Samuele Scatena</h3>
-        </div>
         <div className="container">
           <div className={`pix bg-${bg}`}>
             <div className="grid"></div>
@@ -40,6 +35,13 @@ function App() {
           <div className="controls-options">
             {step === 0 && renderSwatches().map((item) => item)}
           </div>
+        </div>
+      </div>
+      <div className="header-card">
+        <div className="header">
+          <h1 className="font-joystix">Avatr</h1>
+          <div>by</div>
+          <h3 className="font-joystix">Samuele Scatena</h3>
         </div>
       </div>
     </div>
