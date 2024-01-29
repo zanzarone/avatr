@@ -22,7 +22,10 @@ function App() {
       <div className="card">
         <div className="container">
           <div className={`pix bg-${bg}`}>
-            <div className="grid"></div>
+            <div className="a">
+              <img />
+            </div>
+            {/* <div className="b"></div> */}
           </div>
           <div className="controls">
             <button>{"<"}</button>
