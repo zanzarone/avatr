@@ -1,50 +1,80 @@
 import React, { useState } from "react";
 import temp from "./style/icons/design-color-spray-2.png";
-
+import baseA from "./assets/base/baseA.png";
 function App() {
   const [step, setStep] = useState(0);
   const [bg, setBg] = useState(1);
 
   const renderSwatches = () => {
     const swatches = [
-      <div className={`swatch bg-1`} onClick={() => setBg(1)} />,
-      <div className={`swatch bg-2`} onClick={() => setBg(2)} />,
-      <div className={`swatch bg-3`} onClick={() => setBg(3)} />,
-      <div className={`swatch bg-4`} onClick={() => setBg(4)} />,
-      <div className={`swatch bg-5`} onClick={() => setBg(5)} />,
-      <div className={`swatch bg-6`} onClick={() => setBg(6)} />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-1 nes-pointer`}
+        onClick={() => setBg(1)}
+      />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-2 nes-pointer`}
+        onClick={() => setBg(2)}
+      />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-3 nes-pointer`}
+        onClick={() => setBg(3)}
+      />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-4 nes-pointer`}
+        onClick={() => setBg(4)}
+      />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-5 nes-pointer`}
+        onClick={() => setBg(5)}
+      />,
+      <button
+        type="button"
+        className={`nes-btn btn-swtaches bg-6 nes-pointer`}
+        onClick={() => setBg(6)}
+      />,
     ];
     return swatches;
   };
 
   return (
     <div className="main">
-      <div className="card">
+      <div style={{ marginTop: 50 }} className="nes-container is-rounded card">
+        <div className="header">
+          <h1 className="font-joystix">Avatr</h1>
+        </div>
+      </div>
+
+      <div className="nes-container is-rounded card">
         <div className="container">
-          <div className={`pix bg-${bg}`}>
-            <div className="a">
-              <img />
+          <div
+            style={{ display: "flex", flexDirection: "row", columnGap: 10 }}
+            className=""
+          >
+            <div></div>
+            <div className={`nes-container is-rounded pix bg-${bg}`}>
+              <div className="base">
+                <img src={baseA} height={128} width={128} alt="" />
+              </div>
             </div>
-            {/* <div className="b"></div> */}
+            {/* <div>b</div> */}
           </div>
-          <div className="controls">
-            <button>{"<"}</button>
-            <div className="selected-controls">
-              <img src={temp} width={24} height={24} />
-              <span>Background</span>
+          <div class="nes-container with-title">
+            <p class="title">Background</p>
+            <div className="controls-options">
+              {step === 0 && renderSwatches().map((item) => item)}
             </div>
-            <button>{">"}</button>
-          </div>
-          <div className="controls-options">
-            {step === 0 && renderSwatches().map((item) => item)}
           </div>
         </div>
       </div>
-      <div className="header-card">
+      <div className="nes-container is-rounded card">
         <div className="header">
-          <h1 className="font-joystix">Avatr</h1>
           <div>by</div>
-          <h3 className="font-joystix">Samuele Scatena</h3>
+          <div className="font-joystix">Samuele Scatena</div>
         </div>
       </div>
     </div>

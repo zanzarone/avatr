@@ -1,16 +1,8 @@
-@font-face {
-  font-family: "Avatr";
-  src: url(./font/origap__.ttf);
-}
+@import "../../node_modules/nes.css/css/nes.css";
 
 @font-face {
-  font-family: "Nunito";
-  src: url(./font/Nunito-Regular.ttf);
-}
-
-@font-face {
-  font-family: "JoyStix";
-  src: url(./font/joystix.otf);
+  font-family: "PressStart2P";
+  src: url(./font/PressStart2P-Regular.ttf);
 }
 
 :root {
@@ -37,8 +29,9 @@ body {
       var(--c2) 0 calc(2.328 * var(--s))
     );
   background-size: calc(4 * var(--s)) calc(4 * var(--s));
-  font-family: "JoyStix";
+  font-family: "PressStart2P";
   font-size: 11px;
+  font-weight: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,8 +44,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  row-gap: 3rem;
+  // justify-content: center;
+  // padding-top: 10rem;
+  row-gap: 1.5rem;
   // max-width: 600px;
   // justify-content: center;
 }
@@ -62,15 +56,18 @@ body {
   background-color: snow;
   border-radius: 8px;
   // height: 500px;
-  width: 450px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+  // width: 450px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem 1rem;
   row-gap: 0.5rem;
+}
+
+.card {
+  margin-top: 8rem;
 }
 
 .header-card {
@@ -98,23 +95,11 @@ body {
   height: 200px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-// .grid {
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   grid-template-rows: repeat(4, 1fr);
-//   background-color: black;
-//   .pixel {
-//     height: 2px;
-//     width: 2px;
-//   }
-// }
-
-.a,
+.base,
 .b {
   position: absolute;
   top: 0;
@@ -125,14 +110,10 @@ body {
   // overflow: hidden;
 }
 
-.a {
-  background-color: lightgreen;
-  // z-index: 2;
-}
-
-.b {
-  background-color: lightcoral;
-  // z-index: 3;
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .controls {
@@ -153,39 +134,21 @@ body {
 .selected-controls {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.swatch {
-  height: 20px;
-  width: 20px;
-  border-radius: 4px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  &:hover {
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-  }
+.btn-control {
+  height: 35px;
+  width: 35px;
 }
 
-button {
-  border-radius: 50%;
-  height: 24px;
-  width: 24px;
-  background-color: silver;
-  border: none;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  &:hover {
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-  }
+.btn-swtaches {
+  height: 25px;
+  width: 25px;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 45px;
   margin: 0;
   margin-block-end: 0;
   margin-block-start: 0;
@@ -194,15 +157,6 @@ h1 {
 h3 {
   margin: 0;
   font-size: 16px;
-}
-
-.font-avatr {
-  font-family: "Avatr";
-}
-
-.font-joystix {
-  font-family: "JoyStix";
-  font-weight: 100;
 }
 
 .bg-1 {
