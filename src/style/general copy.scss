@@ -1,0 +1,193 @@
+@import "../../node_modules/nes.css/css/nes.css";
+
+@font-face {
+  font-family: "PressStart2P";
+  src: url(./font/PressStart2P-Regular.ttf);
+}
+
+:root {
+  --bg-body: #f7f2ee;
+  --bg-color-1: #faedcb;
+  --bg-color-2: #c9e4de;
+  --bg-color-3: #c6def1;
+  --bg-color-4: #dbcdf0;
+  --bg-color-5: #f2c6de;
+  --bg-color-6: #f7d9c4;
+}
+
+@keyframes move-it {
+  0% {
+    background-position: initial;
+  }
+  100% {
+    background-position: 100px 0px;
+  }
+}
+
+body {
+  background: repeating-linear-gradient(
+    45deg,
+    #c6def1,
+    #c6def1 5%,
+    #a1cbed 5%,
+    #a1cbed 10%
+  );
+  background-size: 100px 100px;
+  animation: move-it 3s linear infinite;
+  font-family: "PressStart2P";
+  font-size: 11px;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.5rem;
+  padding: 1rem 10rem;
+  // background-color: red;
+}
+
+.card,
+.header-card {
+  width: 100%;
+  background-color: snow;
+  border-radius: 8px;
+  min-width: 650px;
+  max-width: 1300px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  row-gap: 0.5rem;
+}
+
+.card {
+  margin-top: 8rem;
+  // min-width: 500px;
+  width: 100%;
+}
+
+.header-card {
+  height: auto;
+  // width: 450px;
+  padding: 1rem 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  width: 100%;
+  row-gap: 2.5rem;
+  align-items: center;
+}
+
+.pix {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.base,
+.b {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  // overflow: hidden;
+}
+
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.controls-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 0.5rem;
+}
+
+.selected-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-control {
+  height: 35px;
+  width: 35px;
+}
+
+.btn-swtaches {
+  height: 25px;
+  width: 25px;
+}
+
+h1 {
+  font-size: 35px;
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.bg-1 {
+  background-color: var(--bg-color-1);
+}
+
+.bg-2 {
+  background-color: var(--bg-color-2);
+}
+
+.bg-3 {
+  background-color: var(--bg-color-3);
+}
+
+.bg-4 {
+  background-color: var(--bg-color-4);
+}
+
+.bg-5 {
+  background-color: var(--bg-color-5);
+}
+
+.bg-6 {
+  background-color: var(--bg-color-6);
+}
