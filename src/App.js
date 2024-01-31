@@ -21,6 +21,8 @@ const baseClasses = [
 
 const eyeClasses = [
   { value: 0, path: "/assets/eyes/eyes1", text: "Type 1" },
+  { value: 1, path: "/assets/eyes/eyes2", text: "Type 2" },
+  { value: 2, path: "/assets/eyes/eyes3", text: "Type 3" },
   // { value: 1, path: "./assets/base/TypeA" },
 ];
 
@@ -46,8 +48,7 @@ const hairClasses = [
 ];
 
 function generateRandomString(length) {
-  const charset =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
 
   for (let i = 0; i < length; i++) {
@@ -63,7 +64,7 @@ const Swatches = ({ classes, value, onColorChanged }) => {
     <div className="swatches">
       {classes?.map((cl, index) => {
         return (
-          <label key={generateRandomString(20)}>
+          <label className="" key={generateRandomString(20)}>
             <input
               // value={cl.value}
               checked={cl.value === value}
@@ -72,9 +73,10 @@ const Swatches = ({ classes, value, onColorChanged }) => {
               // name="answer"
               onChange={() => onColorChanged(index)}
             />
-            <span
+            {/* <span
               className={`nes-container is-rounded swatch ${cl.style}`}
-            ></span>
+            ></span> */}
+            <span className={`swatch ${cl.style}`}></span>
           </label>
         );
       })}
@@ -104,7 +106,7 @@ const Select = ({ defaultOption, options, onChange }) => {
         {options.map((option, index) => {
           return (
             <option
-              // key={`${generateRandomString(20)}_${index}`}
+              key={`${generateRandomString(20)}_${index}`}
               // selected={option.value === defaultOption}
               value={option.text}
             >
@@ -165,13 +167,13 @@ function App() {
           </div>
           <div className="nes-container with-title is-rounded">
             <p className="title">Skin color</p>
-            <div className="full">
-              <Swatches
-                value={skinColor}
-                onColorChanged={(v) => setSkinColor(v)}
-                classes={skinClasses}
-              />
-            </div>
+            {/* <div className="full"> */}
+            <Swatches
+              value={skinColor}
+              onColorChanged={(v) => setSkinColor(v)}
+              classes={skinClasses}
+            />
+            {/* </div> */}
           </div>
         </div>
         <div className="center">
@@ -228,16 +230,9 @@ function App() {
               </div>
             </div>
           </div>
-          <div
-            className="nes-container with-title is-rounded"
-            style={{ width: 230 }}
-          >
+          <div className="nes-container with-title is-rounded" style={{ width: 230 }}>
             <p className="title">Background</p>
-            <Swatches
-              value={bg}
-              classes={backgroundClasses}
-              onColorChanged={setBg}
-            />
+            <Swatches value={bg} classes={backgroundClasses} onColorChanged={setBg} />
           </div>
         </div>
         <div className="right">
@@ -246,7 +241,7 @@ function App() {
             <div className="full">
               <Select
                 options={eyeClasses}
-                defaultOption={eyesType}
+                defaultOption={eyeClasses[eyesType].text}
                 onChange={setEyesType}
               />
             </div>
