@@ -48,7 +48,8 @@ const hairClasses = [
 ];
 
 function generateRandomString(length) {
-  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charset =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
 
   for (let i = 0; i < length; i++) {
@@ -196,14 +197,14 @@ function App() {
                   alt=""
                 />
               </div>
-              <div className="ears">
+              {/* <div className="ears">
                 <img
                   src={`${earClasses[earsType].path}-${skinClasses[skinColor].class}.png`}
                   height={128}
                   width={128}
                   alt=""
                 />
-              </div>
+              </div> */}
               <div className="mouth">
                 <img
                   src={`${mouthClasses[mouthType].path}-${skinClasses[skinColor].class}.png`}
@@ -230,9 +231,16 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="nes-container with-title is-rounded" style={{ width: 230 }}>
+          <div
+            className="nes-container with-title is-rounded"
+            style={{ width: 230 }}
+          >
             <p className="title">Background</p>
-            <Swatches value={bg} classes={backgroundClasses} onColorChanged={setBg} />
+            <Swatches
+              value={bg}
+              classes={backgroundClasses}
+              onColorChanged={setBg}
+            />
           </div>
         </div>
         <div className="right">
@@ -246,7 +254,7 @@ function App() {
               />
             </div>
           </div>
-          <div className="nes-container with-title is-rounded">
+          {/* <div className="nes-container with-title is-rounded">
             <p className="title">Ears</p>
             <div className="full">
               <Select
@@ -255,7 +263,7 @@ function App() {
                 onChange={setEarsType}
               />
             </div>
-          </div>
+          </div> */}
           <div className="nes-container with-title is-rounded">
             <p className="title">Nose</p>
             <div className="full">
