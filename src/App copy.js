@@ -79,8 +79,7 @@ const MouthClasses = {
 };
 
 function generateRandomString(length) {
-  const charset =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
 
   for (let i = 0; i < length; i++) {
@@ -132,10 +131,7 @@ const Select = ({ defaultOption, options, onChange }) => {
       >
         {options.map((option, index) => {
           return (
-            <option
-              key={`${generateRandomString(20)}_${index}`}
-              value={option.value}
-            >
+            <option key={`${generateRandomString(20)}_${index}`} value={option.value}>
               {option.value}
             </option>
           );
@@ -320,7 +316,7 @@ function App() {
   return (
     <div className="main">
       <header>
-        <div className="subpippo">
+        <div className="app-info">
           <span className="name">
             AvatR
             {/* AvatR<sub className="author">by zanzarone</sub> */}

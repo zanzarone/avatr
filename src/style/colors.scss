@@ -1,0 +1,141 @@
+.bg-1 {
+  background-color: var(--bg-color-1);
+}
+
+.bg-2 {
+  background-color: var(--bg-color-2);
+}
+
+.bg-3 {
+  background-color: var(--bg-color-3);
+}
+
+.bg-4 {
+  background-color: var(--bg-color-4);
+}
+
+.bg-5 {
+  background-color: var(--bg-color-5);
+}
+
+.bg-6 {
+  background-color: var(--bg-color-6);
+}
+
+.bg-clear {
+  width: 100%;
+  // height: 100%;
+  background-size: 50px 50px;
+  background-image: linear-gradient(
+      45deg,
+      silver 25%,
+      transparent 25%,
+      transparent 75%,
+      silver 75%,
+      silver
+    ),
+    linear-gradient(
+      45deg,
+      silver 25%,
+      transparent 25%,
+      transparent 75%,
+      silver 75%,
+      silver
+    ),
+    linear-gradient(
+      45deg,
+      #e0e0e0 25%,
+      transparent 25%,
+      transparent 75%,
+      #e0e0e0 75%,
+      #e0e0e0
+    ),
+    linear-gradient(
+      45deg,
+      #e0e0e0 25%,
+      transparent 25%,
+      transparent 75%,
+      #e0e0e0 75%,
+      #e0e0e0
+    );
+  background-position: 0 0, 25px 25px, 25px 0, 0 25px;
+}
+
+.bg-7 {
+  background-color: #fff;
+}
+
+.skin-pale {
+  background-color: #f2d7cf;
+}
+
+.skin-white {
+  background-color: #e9b9a0;
+}
+
+.skin-light {
+  background-color: #d3a77d;
+}
+
+.skin-medium {
+  background-color: #c59179;
+}
+
+.skin-dark {
+  background-color: #6c2b17;
+  color: white;
+}
+
+.skin-deeply {
+  background-color: #391c18;
+  color: white;
+}
+
+.eyes-black,
+.glasses-black {
+  color: white;
+  background-color: #000;
+}
+
+.eyes-brown {
+  color: white;
+  background-color: #724b2c;
+}
+
+.eyes-blue {
+  background-color: #2789cd;
+}
+
+.eyes-green {
+  background-color: #5d9b79;
+}
+
+.eyes-gray {
+  background-color: #5e718e;
+}
+
+.eyes-amber {
+  background-color: #c6b858;
+}
+
+.hair-brown {
+  color: white;
+  background-color: #271f1b;
+}
+
+.hair-gold {
+  background-color: #d6a851;
+}
+
+.hair-red {
+  color: white;
+  background-color: #92170b;
+}
+
+.hair-gray {
+  background-color: #b8ccd8;
+}
+
+.glasses-magenta {
+  background-color: magenta;
+}
