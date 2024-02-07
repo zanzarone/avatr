@@ -1,28 +1,35 @@
-.bg-1 {
+.bg-1,
+.nes-container.bg-1 {
   background-color: var(--bg-color-1);
 }
 
-.bg-2 {
+.bg-2,
+.nes-container.bg-2 {
   background-color: var(--bg-color-2);
 }
 
-.bg-3 {
+.bg-3,
+.nes-container.bg-3 {
   background-color: var(--bg-color-3);
 }
 
-.bg-4 {
+.bg-4,
+.nes-container.bg-4 {
   background-color: var(--bg-color-4);
 }
 
-.bg-5 {
+.bg-5,
+.nes-container.bg-5 {
   background-color: var(--bg-color-5);
 }
 
-.bg-6 {
+.bg-6,
+.nes-container.bg-6 {
   background-color: var(--bg-color-6);
 }
 
-.bg-clear {
+.bg-clear,
+.nes-container.bg-clear {
   width: 100%;
   // height: 100%;
   background-size: 50px 50px;
@@ -61,7 +68,8 @@
   background-position: 0 0, 25px 25px, 25px 0, 0 25px;
 }
 
-.bg-7 {
+.bg-7,
+.nes-container.bg-7 {
   background-color: #fff;
 }
 

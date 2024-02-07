@@ -1,0 +1,129 @@
+/* //@ Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  main {
+    // background-color: red;
+    padding: 1rem;
+  }
+
+  .grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 1rem;
+  }
+
+  .avatar-item {
+    position: fixed;
+    z-index: 2;
+    right: 2rem;
+    top: 2rem;
+  }
+  .generate-small {
+    display: none;
+  }
+
+  .generate-big {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    // flex: 1;
+    // background-color: green;
+    position: fixed;
+    // height: 50px;
+    width: 185px;
+    z-index: 3;
+    right: 2rem;
+    top: 230px;
+  }
+}
+
+/* //@ Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  main {
+    // background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .generate-small {
+    display: block;
+  }
+  .generate-big {
+    display: none;
+  }
+}
+
+/* //@ Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  main {
+    // background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* //@ Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  main {
+    // background-color: green;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* //@ Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1400px) {
+  main {
+    // background-color: cyan;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .accessories-item {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    // background-color: #2789cd;
+  }
+
+  .eyes-item {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    // background-color: #2789cd;
+  }
+
+  .hair-item {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    // background-color: #2789cd;
+  }
+}

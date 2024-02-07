@@ -44,29 +44,18 @@ body {
   margin: 0;
 }
 
-.main {
+.root {
   height: 100vh;
-  min-width: 460px;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 2rem;
 }
 
 main {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 1rem;
+  min-width: 400px;
+  // height: 100%;
 }
 
 .grid-item {
@@ -74,37 +63,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   row-gap: 1rem;
-}
-
-.accessories-item {
-  grid-row-start: 1;
-  grid-row-end: span 2;
-  grid-column-start: 4;
-  grid-column-end: 5;
-  // background-color: #2789cd;
-}
-
-.eyes-item {
-  grid-row-start: 3;
-  grid-row-end: 4;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  // background-color: #2789cd;
-}
-
-.hair-item {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  // background-color: #2789cd;
-}
-
-.container-item {
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
+  min-width: 0px;
 }
 
 .nes-container {
@@ -186,3 +145,24 @@ main {
   pointer-events: none;
   opacity: 0.2;
 }
+
+.popup {
+  z-index: 4;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+
+  .nes-container {
+    padding: 1rem;
+  }
+
+  .nes-container.is-error {
+    background-color: crimson;
+    color: snow;
+  }
+}
+
+@import url("./breakpoints.scss");
