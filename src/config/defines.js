@@ -26,12 +26,12 @@ export const SkinClasses = {
 };
 
 export const EyeColors = {
-  BLACK: { style: "eyes-black", value: "Black", path: "1" },
-  BROWN: { style: "eyes-brown", value: "Brown", path: "2" },
-  GREEN: { style: "eyes-blue", value: "Blue", path: "3" },
-  BLUE: { style: "eyes-green", value: "Green", path: "4" },
-  GRAY: { style: "eyes-gray", value: "Gray", path: "5" },
-  AMBER: { style: "eyes-amber", value: "Amber", path: "6" },
+  BLACK: { style: "eyes-black", value: "Black", path: 1 },
+  BROWN: { style: "eyes-brown", value: "Brown", path: 2 },
+  GREEN: { style: "eyes-blue", value: "Blue", path: 3 },
+  BLUE: { style: "eyes-green", value: "Green", path: 4 },
+  GRAY: { style: "eyes-gray", value: "Gray", path: 5 },
+  AMBER: { style: "eyes-amber", value: "Amber", path: 6 },
 };
 
 export const EyesClasses = {
@@ -56,10 +56,10 @@ export const HairClasses = {
   H10: { path: "H10", value: "Type H10" },
 };
 export const HairColorsClasses = {
-  BROWN: { path: "1", value: "Brown", style: "hair-brown" },
-  GOLD: { path: "2", value: "Gold", style: "hair-gold" },
-  RED: { path: "3", value: "Red", style: "hair-red" },
-  GRAY: { path: "4", value: "Gray", style: "hair-gray" },
+  BROWN: { path: 1, value: "Brown", style: "hair-brown" },
+  GOLD: { path: 2, value: "Gold", style: "hair-gold" },
+  RED: { path: 3, value: "Red", style: "hair-red" },
+  GRAY: { path: 4, value: "Gray", style: "hair-gray" },
 };
 
 export const NoseClasses = {

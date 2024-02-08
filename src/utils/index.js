@@ -1,5 +1,6 @@
 export function generateRandomString(length) {
-  const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charset =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
 
   for (let i = 0; i < length; i++) {
@@ -20,13 +21,14 @@ export async function generateAvatar(options) {
     body: JSON.stringify(options),
     // body: options,
   };
-  console.log(process.env.REACT_APP_API_ENDPOINT);
   const response = await fetch(
     `${process.env.REACT_APP_API_ENDPOINT}/generate`,
     fetchOptions
   );
   if (!response.ok) {
-    throw new Error(`Failed to download file: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `Failed to download file: ${response.status} ${response.statusText}`
+    );
   }
   // a Blob object representing the file data
   const blob = await response.blob();

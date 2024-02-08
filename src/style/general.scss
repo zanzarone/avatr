@@ -27,10 +27,10 @@
 body {
   background: repeating-linear-gradient(
     45deg,
-    whitesmoke,
-    whitesmoke 5%,
-    Gainsboro 5%,
-    Gainsboro 10%
+    #e2eafc,
+    #e2eafc 5%,
+    #d7e3fc 5%,
+    #d7e3fc 10%
   );
   background-size: 100px 100px;
   animation: move-it 12s linear infinite;
@@ -149,19 +149,64 @@ main {
 .popup {
   z-index: 4;
   position: fixed;
-  top: 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #e0e0e0cc;
 
   .nes-container {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    flex: 1;
+    margin: 1rem 2rem;
     padding: 1rem;
+    img {
+      image-rendering: pixelated;
+    }
   }
 
   .nes-container.is-error {
     background-color: crimson;
     color: snow;
+  }
+  .nes-container.is-success {
+    background-color: #92cc41;
+    color: snow;
+  }
+}
+
+.dialog {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // padding-top: 8rem;
+  background-color: #e0e0e0cc;
+  .nes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+    flex: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    // padding: 2rem;
+    .title {
+      color: #007bff;
+      font-size: 14px;
+      // padding: 0 3rem;
+    }
   }
 }
 

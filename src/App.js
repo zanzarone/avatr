@@ -15,6 +15,9 @@ import {
   AccessoriesClasses,
 } from "./config/defines";
 
+import successIcon from "./style/icons/check-fat.png";
+import errorIcon from "./style/icons/warning.png";
+
 const Select = ({ disabled = false, defaultOption, options, onChange }) => {
   // console.log(defaultOption);
   return (
@@ -32,7 +35,10 @@ const Select = ({ disabled = false, defaultOption, options, onChange }) => {
       >
         {options.map((option, index) => {
           return (
-            <option key={`${generateRandomString(20)}_${index}`} value={option.value}>
+            <option
+              key={`${generateRandomString(20)}_${index}`}
+              value={option.value}
+            >
               {option.value !== undefined && option.value}
             </option>
           );
@@ -51,8 +57,32 @@ const GenericContainer = ({ children, title }) => {
   );
 };
 
+const DialogNoButtons = ({ message, title, show }) => {
+  return show ? (
+    <div className="dialog">
+      <div className={`nes-container is-rounded is-centered is-primary`}>
+        {title && <span className="title">{`${title}`}</span>}
+        {message}
+      </div>
+    </div>
+  ) : null;
+};
+
+const Alert = ({ message, show, type, icon }) => {
+  return show ? (
+    <div className="popup">
+      <div className={`nes-container is-rounded is-dark ${type}`}>
+        {icon}
+        {message}
+      </div>
+    </div>
+  ) : null;
+};
+
 function App() {
+  const [isLoading, loading] = useState(false);
   const [error, setError] = useState();
+  const [isSuccess, success] = useState(false);
   const [bg, setBg] = useState(BackgroundClasses.BG1);
   const [baseType, setBaseType] = useState(BaseClasses.BASE_1);
   const [skinColor, setSkinColor] = useState(SkinClasses.SKIN_1);
@@ -65,7 +95,9 @@ function App() {
   const [earsType, setEarsType] = useState(EarsClasses.EA1);
 
   const [accessories, setAccessories] = useState([]);
-  const [glassesType, setGlassesType] = useState(AccessoriesClasses.GLASSES.TYPES.NONE);
+  const [glassesType, setGlassesType] = useState(
+    AccessoriesClasses.GLASSES.TYPES.NONE
+  );
   const [glassesColors, setGlassesColors] = useState(
     AccessoriesClasses.GLASSES.COLORS.BLACK
   );
@@ -133,7 +165,9 @@ function App() {
           </div>
           {accessories.length > 0 && (
             <div className="accessories">
-              {accessories.some((key) => key === AccessoriesClasses.GLASSES.KEY) && (
+              {accessories.some(
+                (key) => key === AccessoriesClasses.GLASSES.KEY
+              ) && (
                 <div className="glasses">
                   <img
                     src={`${ASSETS_PATH}GOOGLES/${glassesColors.path}/${glassesType.path}.png`}
@@ -156,6 +190,7 @@ function App() {
   // );
 
   const generate = async () => {
+    loading(true);
     const options = {
       bg: bg.path,
       base: baseType.path,
@@ -172,11 +207,18 @@ function App() {
         type: eyesType.path,
       },
     };
-    try {
-      await generateAvatar(options);
-    } catch (error) {
-      setError(error.message);
-    }
+
+    setTimeout(async () => {
+      try {
+        await generateAvatar(options);
+        success(true);
+        setTimeout(() => success(false), 2000);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        loading(false);
+      }
+    }, 1000);
   };
 
   useEffect(() => {
@@ -192,14 +234,42 @@ function App() {
   return (
     <div className="root">
       <main>
-        {error !== undefined && (
-          <div className="popup">
-            <div className="nes-container is-rounded is-error">{error}</div>
-          </div>
-        )}
+        <DialogNoButtons
+          show={isLoading}
+          title="Loading..."
+          message="Generating avatar, please wait"
+        />
+        <Alert
+          icon={
+            <img
+              className="nes-avatar is-rounded"
+              alt="error icon"
+              src={errorIcon}
+            />
+          }
+          show={error !== undefined}
+          message={error}
+          type={"is-error"}
+        />
+        <Alert
+          show={isSuccess}
+          icon={
+            <img
+              className="nes-avatar is-rounded"
+              alt="success icon"
+              src={successIcon}
+            />
+          }
+          message={"Avatr successfully downloaded!"}
+          type={"is-success"}
+        />
         <div className="grid-container">
           <div className="generate-big">
-            <button type="button" className="nes-btn is-primary " onClick={generate}>
+            <button
+              type="button"
+              className="nes-btn is-primary "
+              onClick={generate}
+            >
               Generate
             </button>
             {/* <button type="button" className="nes-btn is-success is-disabled">
@@ -272,7 +342,11 @@ function App() {
                 >
                   <i className="nes-icon linkedin is-medium"></i>
                 </a>{" "}
-                <a rel="noreferrer" target="_blank" href="https://github.com/zanzarone">
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://github.com/zanzarone"
+                >
                   <i className="nes-icon github is-medium"></i>
                 </a>
               </div>
@@ -312,42 +386,10 @@ function App() {
               <div className="container-item">
                 <span>Color:</span>
                 <Select
+                  disabled={hairType.value === HairClasses.NONE.value}
                   options={Object.values(HairColorsClasses)}
                   defaultOption={hairColor}
                   onChange={setHairColor}
-                />
-              </div>
-            </GenericContainer>
-          </div>
-          <div className="accessories-item grid-item">
-            <GenericContainer title="Accessories">
-              {/* //@ GLASSES */}
-              <div className="container-item">
-                <span>Glasses type:</span>
-                <Select
-                  defaultOption={glassesType}
-                  options={Object.values(AccessoriesClasses.GLASSES.TYPES)}
-                  onChange={(v) => {
-                    let acc = accessories.filter(
-                      (a) => a !== AccessoriesClasses.GLASSES.KEY
-                    );
-                    if (v.value !== AccessoriesClasses.GLASSES.TYPES.NONE.value) {
-                      acc.push(AccessoriesClasses.GLASSES.KEY);
-                    }
-                    setAccessories(acc);
-                    setGlassesType(v);
-                  }}
-                />
-              </div>
-              <div className="container-item">
-                <span>Glasses color:</span>
-                <Select
-                  disabled={
-                    glassesType.value === AccessoriesClasses.GLASSES.TYPES.NONE.value
-                  }
-                  defaultOption={glassesColors}
-                  options={Object.values(AccessoriesClasses.GLASSES.COLORS)}
-                  onChange={setGlassesColors}
                 />
               </div>
             </GenericContainer>
@@ -369,6 +411,42 @@ function App() {
                   options={Object.values(EyeColors)}
                   defaultOption={eyesColor}
                   onChange={setEyesColor}
+                />
+              </div>
+            </GenericContainer>
+          </div>
+          <div className="accessories-item grid-item">
+            <GenericContainer title="Accessories">
+              {/* //@ GLASSES */}
+              <div className="container-item">
+                <span>Glasses type:</span>
+                <Select
+                  defaultOption={glassesType}
+                  options={Object.values(AccessoriesClasses.GLASSES.TYPES)}
+                  onChange={(v) => {
+                    let acc = accessories.filter(
+                      (a) => a !== AccessoriesClasses.GLASSES.KEY
+                    );
+                    if (
+                      v.value !== AccessoriesClasses.GLASSES.TYPES.NONE.value
+                    ) {
+                      acc.push(AccessoriesClasses.GLASSES.KEY);
+                    }
+                    setAccessories(acc);
+                    setGlassesType(v);
+                  }}
+                />
+              </div>
+              <div className="container-item">
+                <span>Glasses color:</span>
+                <Select
+                  disabled={
+                    glassesType.value ===
+                    AccessoriesClasses.GLASSES.TYPES.NONE.value
+                  }
+                  defaultOption={glassesColors}
+                  options={Object.values(AccessoriesClasses.GLASSES.COLORS)}
+                  onChange={setGlassesColors}
                 />
               </div>
             </GenericContainer>
