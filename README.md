@@ -41,7 +41,11 @@
 
 This project was born for fun, as an experiment in creating faces using pixel art
 
-<!-- This project is the frontend part of <a href>Avatr API</a> -->
+<div align="center">
+
+[![AvatR Screen Shot][product-screenshot]](https://example.com)
+
+</div>
 
 ### Built With
 
@@ -134,3 +138,5 @@ Samuele Scatena - [@LinkedIn](https://it.linkedin.com/in/samuele-scatena) - samu
 Project Link: [https://github.com/zanzarone/avatr](https://github.com/zanzarone/avatr)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[product-screenshot]: images/screenshot.png
