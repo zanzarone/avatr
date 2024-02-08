@@ -3,13 +3,18 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+
+<div align="center">
   <a href="https://github.com/zanzarone/avatr">
     <img src="images/logo.png" alt="Logo" width="120" height="120" style="border-radius:50%;">
   </a>
+</div>
   
+<div align="center">
   <a href="https://github.com/zanzarone/avatr">
     <img src="images/logo_name.png" alt="Logo" width="192" height="46">
   </a>
+</div>
 
   <p align="center">
     A simple pixelart avatar generator  
