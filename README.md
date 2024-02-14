@@ -98,7 +98,7 @@ This project was born for fun, as an experiment in creating faces using pixel ar
 - [ ] Add Additional pixelart Templates
 - [ ] Add support for others file type
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/zanzarone/avatr/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
