@@ -48,9 +48,12 @@
   }
 
   .grid-container {
+    height: 100%;
+    max-height: 944px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding-top: 2rem;
   }
 
   .generate-small {
@@ -73,6 +76,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    max-height: 730px;
   }
 }
 
