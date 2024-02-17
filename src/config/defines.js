@@ -1,4 +1,4 @@
-export const ASSETS_PATH = "/assets/";
+export const ASSETS_PATH = "/avatr/assets/";
 
 export const BackgroundClasses = {
   BG1: { style: "bg-1", value: "BG 1", path: "BG1" },
