@@ -35,10 +35,7 @@ const Select = ({ disabled = false, defaultOption, options, onChange }) => {
       >
         {options.map((option, index) => {
           return (
-            <option
-              key={`${generateRandomString(20)}_${index}`}
-              value={option.value}
-            >
+            <option key={`${generateRandomString(20)}_${index}`} value={option.value}>
               {option.value !== undefined && option.value}
             </option>
           );
@@ -95,12 +92,52 @@ function App() {
   const [earsType, setEarsType] = useState(EarsClasses.EA1);
 
   const [accessories, setAccessories] = useState([]);
-  const [glassesType, setGlassesType] = useState(
-    AccessoriesClasses.GLASSES.TYPES.NONE
-  );
+  const [glassesType, setGlassesType] = useState(AccessoriesClasses.GLASSES.TYPES.NONE);
   const [glassesColors, setGlassesColors] = useState(
     AccessoriesClasses.GLASSES.COLORS.BLACK
   );
+
+  const generate = async () => {
+    loading(true);
+    const options = {
+      bg: bg.path,
+      base: baseType.path,
+      skin: skinColor.path,
+      mouth: mouthType.path,
+      nose: noseType.path,
+      hair: {
+        type: hairType.path,
+        color: hairColor.path,
+      },
+      ears: earsType.path,
+      eyes: {
+        color: eyesColor.path,
+        type: eyesType.path,
+      },
+    };
+
+    setTimeout(async () => {
+      try {
+        await generateAvatar(options);
+        success(true);
+        setTimeout(() => success(false), 2000);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        loading(false);
+      }
+    }, 1000);
+  };
+
+  useEffect(() => {
+    let clearTimer;
+    if (error) {
+      clearTimer = setTimeout(() => setError(undefined), 5000);
+    }
+    return function cleanup() {
+      clearTimeout(clearTimer);
+    };
+  }, [error]);
 
   const Preview = () => {
     return (
@@ -165,9 +202,7 @@ function App() {
           </div>
           {accessories.length > 0 && (
             <div className="accessories">
-              {accessories.some(
-                (key) => key === AccessoriesClasses.GLASSES.KEY
-              ) && (
+              {accessories.some((key) => key === AccessoriesClasses.GLASSES.KEY) && (
                 <div className="glasses">
                   <img
                     src={`${ASSETS_PATH}GOOGLES/${glassesColors.path}/${glassesType.path}.png`}
@@ -184,53 +219,6 @@ function App() {
     );
   };
 
-  // console.info(
-  //   accessories,
-  //   accessories.some((a) => a.KEY === AccessoriesClasses.GLASSES.KEY)
-  // );
-
-  const generate = async () => {
-    loading(true);
-    const options = {
-      bg: bg.path,
-      base: baseType.path,
-      skin: skinColor.path,
-      mouth: mouthType.path,
-      nose: noseType.path,
-      hair: {
-        type: hairType.path,
-        color: hairColor.path,
-      },
-      ears: earsType.path,
-      eyes: {
-        color: eyesColor.path,
-        type: eyesType.path,
-      },
-    };
-
-    setTimeout(async () => {
-      try {
-        await generateAvatar(options);
-        success(true);
-        setTimeout(() => success(false), 2000);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        loading(false);
-      }
-    }, 1000);
-  };
-
-  useEffect(() => {
-    let clearTimer;
-    if (error) {
-      clearTimer = setTimeout(() => setError(undefined), 5000);
-    }
-    return function cleanup() {
-      clearTimeout(clearTimer);
-    };
-  }, [error]);
-
   return (
     <div className="root">
       <main>
@@ -241,11 +229,7 @@ function App() {
         />
         <Alert
           icon={
-            <img
-              className="nes-avatar is-rounded"
-              alt="error icon"
-              src={errorIcon}
-            />
+            <img className="nes-avatar is-rounded" alt="error icon" src={errorIcon} />
           }
           show={error !== undefined}
           message={error}
@@ -254,22 +238,14 @@ function App() {
         <Alert
           show={isSuccess}
           icon={
-            <img
-              className="nes-avatar is-rounded"
-              alt="success icon"
-              src={successIcon}
-            />
+            <img className="nes-avatar is-rounded" alt="success icon" src={successIcon} />
           }
           message={"Avatr successfully downloaded!"}
           type={"is-success"}
         />
         <div className="grid-container">
           <div className="generate-big">
-            <button
-              type="button"
-              className="nes-btn is-primary "
-              onClick={generate}
-            >
+            <button type="button" className="nes-btn is-primary " onClick={generate}>
               Generate
             </button>
             {/* <button type="button" className="nes-btn is-success is-disabled">
@@ -342,11 +318,7 @@ function App() {
                 >
                   <i className="nes-icon linkedin is-medium"></i>
                 </a>{" "}
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://github.com/zanzarone"
-                >
+                <a rel="noreferrer" target="_blank" href="https://github.com/zanzarone">
                   <i className="nes-icon github is-medium"></i>
                 </a>
               </div>
@@ -427,9 +399,7 @@ function App() {
                     let acc = accessories.filter(
                       (a) => a !== AccessoriesClasses.GLASSES.KEY
                     );
-                    if (
-                      v.value !== AccessoriesClasses.GLASSES.TYPES.NONE.value
-                    ) {
+                    if (v.value !== AccessoriesClasses.GLASSES.TYPES.NONE.value) {
                       acc.push(AccessoriesClasses.GLASSES.KEY);
                     }
                     setAccessories(acc);
@@ -441,8 +411,7 @@ function App() {
                 <span>Glasses color:</span>
                 <Select
                   disabled={
-                    glassesType.value ===
-                    AccessoriesClasses.GLASSES.TYPES.NONE.value
+                    glassesType.value === AccessoriesClasses.GLASSES.TYPES.NONE.value
                   }
                   defaultOption={glassesColors}
                   options={Object.values(AccessoriesClasses.GLASSES.COLORS)}
